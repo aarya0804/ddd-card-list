@@ -49,22 +49,33 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         :host {
           display: inline-block;
           width: 30%;
-          color: var(--ddd-theme-primary);
-          background-color: var(--ddd-theme-accent);
-          font-family: var(--ddd-font-navigation);
+          margin: var(-ddd-spacing-3);
+          color: var(--ddd-theme-text-default);
+          background-color: var(--ddd-theme-default-white);
+          border-radius: var(--ddd-radius-md);
+          /* font-family: var(--ddd-font-navigation); */
         }
         .wrapper {
-          margin: var(--ddd-spacing-2);
+          /* margin: var(--ddd-spacing-2); */
           padding: var(--ddd-spacing-4);
-          margin: auto;
-          background-color: var(--ddd-theme-default-white);
+          /* margin: auto; */
+          /* background-color: var(--ddd-theme-default-white); */
         }
+
         h3 span {
           font-size: var(
             --ddd-card-list-label-font-size,
             var(--ddd-font-size-s)
           );
         }
+
+        h3 {
+          color: var(--ddd-theme-default-potentialMidnight);
+          font-size: var(--ddd-font-size-m);
+          font-weight: bold;
+          margin: var(--ddd-spacing-2) 0;
+        }
+
         img {
           width: 100%;
           height: auto;
@@ -92,12 +103,14 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         a,
         a:link,
         a:visited {
+          margin-top: auto;
+          margin-bottom: 0;
           display: flex;
           justify-content: center;
           align-items: center;
-          padding: 10px; /* Adjust spacing */
+          padding: 10px;
           width: 85%;
-          background-color: #004684;
+          background-color: var(--ddd-theme-default-beaverBlue);
           color: white;
           border: none;
           padding: 12px 20px;
@@ -106,7 +119,6 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           border-radius: 5px;
           cursor: pointer;
           transition: background-color 0.3s ease-in-out;
-          margin-bottom: 15px;
         }
 
         a:hover,
