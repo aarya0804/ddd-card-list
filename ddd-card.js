@@ -22,13 +22,14 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
     this.title = "";
 
     this.image = "";
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/ddd-card-list.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+    this.line = "";
+    // this.registerLocalization({
+    //   context: this,
+    //   localesPath:
+    //     new URL("./locales/ddd-card-list.ar.json", import.meta.url).href +
+    //     "/../",
+    //   locales: ["ar", "es", "hi", "zh"],
+    // });
   }
 
   // Lit reactive properties
@@ -56,6 +57,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           margin: var(--ddd-spacing-2);
           padding: var(--ddd-spacing-4);
           margin: auto;
+          background-color: var(--ddd-theme-default-white);
         }
         h3 span {
           font-size: var(
@@ -66,6 +68,50 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         img {
           width: 100%;
           height: auto;
+          display: block;
+          margin: 0;
+          padding: 0;
+        }
+
+        .line {
+          height: 10px;
+          background-color: var(--ddd-theme-default-nittanyNavy);
+          margin: 0;
+        }
+
+        /* a,
+        a:link,
+        a:visited {
+          display: in-line block;
+          padding: 10px;
+          text-decoration: none;
+          color: white;
+          background-color: blue;
+        } */
+
+        a,
+        a:link,
+        a:visited {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px; /* Adjust spacing */
+          width: 85%;
+          background-color: #004684;
+          color: white;
+          border: none;
+          padding: 12px 20px;
+          font-size: 16px;
+          font-weight: bold;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease-in-out;
+          margin-bottom: 15px;
+        }
+
+        a:hover,
+        a:active {
+          background-color: var(--ddd-theme-default-nittanyNavy);
         }
       `,
     ];
@@ -75,8 +121,10 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html` <div class="wrapper">
       <img src="${this.image}" />
+      <div class="line"></div>
       <h3>${this.title}</h3>
       <slot></slot>
+      <a>Explore ></a>
     </div>`;
   }
 }
