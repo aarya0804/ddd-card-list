@@ -23,6 +23,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
 
     this.image = "";
     this.line = "";
+    this.link = "";
     // this.registerLocalization({
     //   context: this,
     //   localesPath:
@@ -38,6 +39,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
       ...super.properties,
       title: { type: String },
       image: { type: String },
+      link: { type: String },
     };
   }
 
@@ -148,7 +150,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
       <div class="wrapper">
         <h3>${this.title}</h3>
         <slot></slot>
-        <a>Explore ></a>
+        <a href="${this.link}">Explore ></a>
       </div>`;
   }
 }
